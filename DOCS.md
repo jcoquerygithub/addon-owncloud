@@ -1,9 +1,6 @@
 # Home Assistant Add-on: ownCloud
 This addon allows running a very simple owncloud server design to be access on local network only
 
-![Supports aarch64 Architecture][aarch64-shield]
-![Supports amd64 Architecture][amd64-shield]
-
 ## Concept
 ownCloud server installation requires a lot of assets making it very difficult to recreate a docker image based on home-assistant/addons image
 The goal was the opposite, taking the official owncloud server image and creating a new one with home-assistant assets
@@ -36,6 +33,3 @@ git clone https://github.com/jcoquerygithub/addon-owncloud.git
 - click on install and after on build
 - go to the configure tab and make the necessary options adjustment
 - go back on info and start
-
-[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
-[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
