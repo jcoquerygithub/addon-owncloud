@@ -1,0 +1,20 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Community Add-on: ownCloud
+# Runs ownCloud server
+# ==============================================================================
+
+declare domain
+domain=$(bashio::config 'owncloud_domain')
+export OWNCLOUD_VOLUME_ROOT=/data
+export OWNCLOUD_DOMAIN=${domain:="homeassistant.local:8080"}
+export OWNCLOUD_ADMIN_PASSWORD="$(bashio::config 'owncloud_admin_password')"
+export OWNCLOUD_LOG_LEVEL="$(bashio::config 'owncloud_log_level')"
+
+if $(bashio::config.true 'disable_accesslog'); then
+  export OWNCLOUD_ACCESSLOG_LOCATION=/dev/null
+fi
+
+bashio::log.info "Starting ownCloud server on domain ${domain:=none}..."
+exec /usr/bin/owncloud server

@@ -1,0 +1,4 @@
+---
+build_from:
+  aarch64: owncloud/server:10.16.0
+  amd64: owncloud/server:10.16.0

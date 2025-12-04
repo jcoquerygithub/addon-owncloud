@@ -1,0 +1,29 @@
+---
+name: ownCloud
+version: "10.16.0"
+slug: owncloud
+description: ownCloud server addon
+arch:
+  - amd64
+  - aarch64
+init: false
+url: https://github.com/jcoquerygithub/addon-owncloud
+startup: application
+ports:
+  8080/tcp: 8080
+ports_description:
+  8080/tcp: ownCloud Web interface port
+map:
+  - type: data
+    read_only: False
+webui: http://[HOST]:[PORT:8080]/dashboard
+options:
+  owncloud_domain: "homeassistant.local:8080"
+  owncloud_admin_password: "changeme"
+  owncloud_log_level: 3
+  disable_accesslog: true
+schema:
+  owncloud_domain: str
+  owncloud_admin_password: password
+  owncloud_log_level: int
+  disable_accesslog: bool
